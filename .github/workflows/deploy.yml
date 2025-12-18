@@ -28,8 +28,8 @@ jobs:
         run: |
           curl -X POST https://boringcdn.com/api/v1/upload \
             -H "Authorization: Bearer ${{ secrets.BORINGCDN_TOKEN }}" \
-            -F "frontend=boringcdn-welcome" \
             -F "file=@dist.tar.gz" \
+            -F "content_id=${{ secrets.BORINGCDN_CONTENT_ID }}" \
             --fail-with-body
         env:
           BORINGCDN_TOKEN: ${{ secrets.BORINGCDN_TOKEN }}
