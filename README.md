@@ -89,8 +89,8 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ## Related
 
-- [BoringCDN](https://github.com/core-infra/boringcdn) - Main BoringCDN repository
 - [Documentation](https://boringcdn.com/docs) - Full API documentation
+- [BoringCDN](https://boringcdn.com) - BoringCDN service
 
 ## Questions?
 
