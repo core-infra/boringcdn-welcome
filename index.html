@@ -75,16 +75,16 @@ mkdir -p dist
 cp index.html style.css dist/
 
 # Create tar archive
-tar -czf dist.tar.gz -C ./dist .
+tar -czf build.tar.gz -C ./build .
 
 # Upload to BoringCDN
 curl -X POST https://boringcdn.com/api/v1/upload \
   -H "Authorization: Bearer $BORINGCDN_TOKEN" \
-  -F "file=@dist.tar.gz" \
+  -F "file=@build.tar.gz" \
   -F "content_id=$BORINGCDN_CONTENT_ID"
 
 # Clean up
-rm -rf dist dist.tar.gz</code></pre>
+rm -rf build build.tar.gz</code></pre>
             </div>
 
             <h3>Deploy a React App</h3>
@@ -111,16 +111,16 @@ rm build.tar.gz</code></pre>
 npm run build
 
 # Create archive
-tar -czf dist.tar.gz -C ./dist .
+tar -czf build.tar.gz -C ./build .
 
 # Upload to BoringCDN
 curl -X POST https://boringcdn.com/api/v1/upload \
   -H "Authorization: Bearer $BORINGCDN_TOKEN" \
-  -F "file=@dist.tar.gz" \
+  -F "file=@build.tar.gz" \
   -F "content_id=my-vue-app"
 
 # Clean up
-rm dist.tar.gz</code></pre>
+rm build.tar.gz</code></pre>
             </div>
 
             <h3>Deploy Static HTML</h3>
@@ -161,18 +161,18 @@ jobs:
         run: npm run build  # or your build command
 
       - name: Create archive
-        run: tar -czf dist.tar.gz -C ./dist .
+        run: tar -czf build.tar.gz -C ./build .
 
       - name: Upload to BoringCDN
         run: |
           curl -X POST https://boringcdn.com/api/v1/upload \
             -H "Authorization: Bearer ${{ secrets.BORINGCDN_TOKEN }}" \
-            -F "file=@dist.tar.gz" \
+            -F "file=@build.tar.gz" \
             -F "content_id=your-content-id" \
             --fail-with-body
 
       - name: Clean up
-        run: rm dist.tar.gz</code></pre>
+        run: rm build.tar.gz</code></pre>
             </div>
 
             <p><strong>Note:</strong> Add <code>BORINGCDN_TOKEN</code> to your repository secrets in GitHub Settings → Secrets and variables → Actions</p>
