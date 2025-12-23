@@ -21,20 +21,20 @@ When you sign up for BoringCDN, a "welcome" content item is automatically create
 
 ## Uploading Files
 
-Upload files to BoringCDN using the API with a tar.gz archive:
+Upload `build` directory to BoringCDN as a tar.gz archive:
 
 ```bash
 # Create archive from your build directory
-tar -czf dist.tar.gz -C ./dist .
+tar -czf build.tar.gz -C ./build .
 
 # Upload to BoringCDN
 curl -X POST https://boringcdn.com/api/v1/upload \
   -H "Authorization: Bearer $BORINGCDN_TOKEN" \
-  -F "file=@dist.tar.gz" \
+  -F "file=@build.tar.gz" \
   -F "content_id=$BORINGCDN_CONTENT_ID"
 
 # Clean up
-rm dist.tar.gz
+rm build.tar.gz
 ```
 
 ### Getting Started
